@@ -1,11 +1,27 @@
 FROM python:3.10-slim
-RUN apt-get update && apt-get install -y git curl ffmpeg python3-pip wget bash && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV PYTHONUNBUFFERED=1
+ENV PIP_NO_CACHE_DIR=1
+
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    git \
+    curl \
+    wget \
+    bash \
+    gcc \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
+
 COPY requirements.txt .
 
-RUN pip3 install wheel
-RUN pip3 install --no-cache-dir -U -r requirements.txt
+RUN python -m pip install --upgrade pip setuptools wheel
+RUN pip install -r requirements.txt
+
 COPY . .
+
 EXPOSE 5000
 
-CMD flask run -h 0.0.0.0 -p 5000 & python3 main.py
+CMD ["python3", "main.py"]
