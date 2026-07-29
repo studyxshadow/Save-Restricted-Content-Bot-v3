@@ -10,7 +10,7 @@ load_dotenv()
 # ░ CONFIGURATION SETTINGS
 # ════════════════════════════════════════════════════════════════════════════════
 
-# VPS --- FILL COOKIES 🍪 in """ ... """ 
+# VPS --- FILL COOKIES 🍪 in """ ... """
 INST_COOKIES = """
 # write up here insta cookies
 """
@@ -20,10 +20,10 @@ YTUB_COOKIES = """
 """
 
 # ─── BOT / DATABASE CONFIG ──────────────────────────────────────────────────────
-API_ID       = os.getenv("API_ID", "20831812")
-API_HASH     = os.getenv("API_HASH", "9af7c0491f6f09017c3f491f571da3fe")
-BOT_TOKEN    = os.getenv("BOT_TOKEN", "")
-MONGO_DB     = os.getenv("MONGO_DB", "")
+API_ID       = int(os.getenv("API_ID"))
+API_HASH     = os.getenv("API_HASH")
+BOT_TOKEN    = os.getenv("BOT_TOKEN")
+MONGO_DB     = os.getenv("MONGO_DB")
 DB_NAME      = os.getenv("DB_NAME", "telegram_downloader")
 
 # ─── OWNER / CONTROL SETTINGS ───────────────────────────────────────────────────
@@ -37,7 +37,7 @@ MASTER_KEY   = os.getenv("MASTER_KEY", "gK8HzLfT9QpViJcYeB5wRa3DmN7P2xUq")  # se
 IV_KEY       = os.getenv("IV_KEY", "s7Yx5CpVmE3F")  # decryption key
 
 # ─── COOKIES HANDLING ───────────────────────────────────────────────────────────
-YT_COOKIES   = os.getenv("YT_COOKIES", YTUB_COOKIES)
+YT_COOKIES    = os.getenv("YT_COOKIES", YTUB_COOKIES)
 INSTA_COOKIES = os.getenv("INSTA_COOKIES", INST_COOKIES)
 
 # ─── USAGE LIMITS ───────────────────────────────────────────────────────────────
